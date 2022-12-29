@@ -4,6 +4,7 @@ import platform
 import datetime
 import openpyxl
 
+# 
 def get_system_info():
     system = platform.system()
     version = platform.version()
@@ -23,7 +24,8 @@ def get_system_info():
 
 system_info = get_system_info()
 
-# Create a new Excel file if it does not exist, or open it in append mode if it does exist
+# Creating a new Excel file if it does not exist, or opening it in append mode if it exist
+
 try:
     wb = openpyxl.load_workbook('system_file.xlsx')
 except FileNotFoundError:
@@ -46,5 +48,5 @@ ws['E2'] = system_info['machine_name']
 ws['F2'] = system_info['timestamp']
 
 
-# Save the changes to the Excel file
+# Saving the changes inthe Excel file
 wb.save('system_file.xlsx')
